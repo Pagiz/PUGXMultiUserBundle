@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  * @author leonardo proietti (leonardo.proietti@gmail.com)
  * @author eux (eugenio@netmeans.net)
  */
-class UserDiscriminator
+class UserDiscriminator extends ContainerAware
 {
     const SESSION_NAME = 'pugx_user.user_discriminator.class'; 
     
@@ -146,13 +146,22 @@ class UserDiscriminator
     public function getFormType($name)
     {
         $class = $this->getClass();
-        $className = $this->conf[$class][$name]['form']['type'];
+        $formtype = $this->conf[$class][$name]['form']['type'];
         
-        if (!class_exists($className)) {
-            throw new \InvalidArgumentException(sprintf('UserDiscriminator, error getting form type : "%s" not found', $className));
+        if (class_exists($formtype)) 
+        {
+            $type = new $formtype($class);
+            
         }
-
-        $type = new $className($class);
+        elseif ($this->container->has($formtype))
+        {
+            $type = $this->get($formtype);
+        }
+        else 
+        {
+            throw new \InvalidArgumentException(sprintf('UserDiscriminator, error getting form type : "%s" not found', $formtype));
+        }
+        
         
         return $type;
     }
