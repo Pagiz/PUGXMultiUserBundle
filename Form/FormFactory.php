@@ -48,7 +48,7 @@ class FormFactory implements FactoryInterface
      * 
      * @return \Symfony\Component\Form\Form 
      */
-    public function createForm()
+    public function createForm($input = null)
     {
         $type = $this->userDiscriminator->getFormType($this->type);
         $name = $this->userDiscriminator->getFormName($this->type);
@@ -61,7 +61,7 @@ class FormFactory implements FactoryInterface
         $form = $this->formFactory->createNamed(
                 $name, 
                 $type, 
-                null, 
+                $input, 
                 array('validation_groups' => $validationGroups));
         
         $this->forms[$name] = $form;
