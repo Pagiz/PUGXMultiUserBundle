@@ -48,7 +48,7 @@ class FormFactory implements FactoryInterface
      * 
      * @return \Symfony\Component\Form\Form 
      */
-    public function createForm($object)
+    public function createForm($object = null)
     {
         $type = $this->userDiscriminator->getFormType($this->type);
         $name = $this->userDiscriminator->getFormName($this->type);
