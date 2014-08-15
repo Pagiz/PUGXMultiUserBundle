@@ -3,6 +3,7 @@
 namespace PUGX\MultiUserBundle\Model;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use \Symfony\Component\DependencyInjection\ContainerAware;
 
 /**
  * Description of UserDiscriminator
