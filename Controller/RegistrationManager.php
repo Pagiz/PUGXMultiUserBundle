@@ -55,7 +55,7 @@ class RegistrationManager
      * @param string $class
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function register($class)
+    public function register($class, $object = null)
     {
         $this->userDiscriminator->setClass($class);
         
@@ -71,37 +71,9 @@ class RegistrationManager
             $template = 'FOSUserBundle:Registration:register.html.'.$engine;
         }
         
-        $form = $this->formFactory->createForm();      
+        $form = $this->formFactory->createForm($object);      
         return $this->container->get('templating')->renderResponse($template, array(
             'form' => $form->createView(),
         ));
-    }
-    
-    /**
-     *
-     * @param string $class
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function registerInvite($class, $object = null)
-    {
-        $this->userDiscriminator->setClass($class);
-    
-        $this->controller->setContainer($this->container);
-        $result = $this->controller->registerAction($this->container->get('request'));
-        if ($result instanceof RedirectResponse) {
-            return $result;
-        }
-    
-        $template = $this->userDiscriminator->getTemplate('registration');
-        if (is_null($template)) {
-            $engine = $this->container->getParameter('fos_user.template.engine');
-            $template = 'FOSUserBundle:Registration:register.html.'.$engine;
-        }
-    
-        $form = $this->formFactory->createForm($object);
-        return $this->container->get('templating')->renderResponse($template, array(
-            'form' => $form->createView(),
-        ));
-    }
-    
+    }    
 }
