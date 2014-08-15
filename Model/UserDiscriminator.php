@@ -156,7 +156,7 @@ class UserDiscriminator extends ContainerAware
         }
         elseif ($this->container->has($formtype))
         {
-            $type = $this->get($formtype);
+            $type = $this->container->get($formtype);
         }
         else 
         {
