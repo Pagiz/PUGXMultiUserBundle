@@ -227,7 +227,22 @@ class UserDiscriminator extends ContainerAware
                             'type' => $user['profile']['form']['type'],
                             'name' => $user['profile']['form']['name'],
                             'validation_groups' => $user['profile']['form']['validation_groups'],
-                        )
+                        ),
+                        'template' => $user['profile']['template'],
+                    ),
+                    'resetting' => array(
+                        'form' => array(
+                            'type' => $user['resetting']['form']['type'],
+                            'name' => $user['resetting']['form']['name'],
+                        ),
+                        'template' => $user['resetting']['template'],
+                    ),
+                    'login' => array(
+                        'form' => array(
+                            'type' => $user['login']['form']['type'],
+                            'name' => $user['login']['form']['name'],
+                        ),
+                        'template' => $user['login']['template'],
                     )
                 );
         }
