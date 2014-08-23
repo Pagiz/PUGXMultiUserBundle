@@ -1,18 +1,18 @@
 {
-    "name": "pugx/multi-user-bundle",
+    "name": "pagiz/multi-user-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony PUGXMultiUserBundle",
+    "description": "Symfony PagizMultiUserBundle",
     "keywords": ["user management multi user management"],
-    "homepage": "https://github.com/PUGX",
+    "homepage": "https://github.com/Pagiz",
     "license": "MIT",
     "authors": [
         {
-            "name": "Leonardo Proietti",
-            "email": "leonardo.proietti@gmail.com"
+            "name": "Pagiz",
+            "email": "contact@pagiz.fr"
         },
         {
             "name": "Community",
-            "homepage": "https://github.com/PUGX/PUGXMultiUserBundle/contributors"
+            "homepage": "https://github.com/Pagiz/MultiUserBundle"
         }
     ],
     "require": {
