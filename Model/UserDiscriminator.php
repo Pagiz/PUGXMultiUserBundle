@@ -230,6 +230,14 @@ class UserDiscriminator extends ContainerAware
                         ),
                         'template' => $user['profile']['template'],
                     ),
+                    'changePassword' => array(
+                        'form' => array(
+                            'type' => $user['changePassword']['form']['type'],
+                            'name' => $user['changePassword']['form']['name'],
+                            'validation_groups' => $user['changePassword']['form']['validation_groups'],
+                        ),
+                        'template' => $user['changePassword']['template'],
+                    ),
                     'resetting' => array(
                         'form' => array(
                             'type' => $user['resetting']['form']['type'],
